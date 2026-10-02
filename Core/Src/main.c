@@ -45,7 +45,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t rx_msg[10];
+uint8_t rx_msg[10]={0};
 const uint16_t rx_tx_size = 12;
 /* USER CODE END PV */
 
@@ -92,7 +92,7 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Receive_DMA(&huart1, rx_msg, rx_tx_size);
+  HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx_msg, rx_tx_size);
   /* USER CODE END 2 */
 
   /* Infinite loop */
